@@ -2,26 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+
+
+.work{
+  font-family: cursive;
+  font-size: 45px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(20) infinite alternate-reverse;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes typing {
+  0% {
+    width: 0;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  100% {
+    width: 100%;
   }
 }
