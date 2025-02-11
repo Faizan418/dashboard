@@ -91,15 +91,15 @@ export default function AdminDashboard() {
 
   return (
     <ProcatedRoute>
-      <div className="flex flex-col h-screen bg-gray-100">
-        <nav className="bg-red-600 text-white p-4 shadow-lg flex justify-between">
+      <div className="flex flex-col h-screen bg-gray-50 p-6">
+        <nav className="bg-blue-600 text-white p-4 shadow-md flex justify-between rounded-lg">
           <h2 className="text-2xl font-bold">Admin Dashboard</h2>
-          <div className="flex space-x-4">
-            {["All", "pending", "dispatch", "success"].map((status) => (
+          <div className="flex space-x-2">
+            {['All', 'pending', 'dispatch', 'success'].map(status => (
               <button
                 key={status}
-                className={`px-4 py-2 rounded-lg transition-all ${
-                  filter === status ? "bg-white text-red-600 font-bold" : "text-white"
+                className={`px-4 py-2 rounded-lg transition-all shadow-md ${
+                  filter === status ? 'bg-white text-blue-600 font-bold' : 'bg-blue-500 hover:bg-blue-400 text-white'
                 }`}
                 onClick={() => setFilter(status)}
               >
@@ -109,41 +109,41 @@ export default function AdminDashboard() {
           </div>
         </nav>
 
-        <div className="flex-1 p-6 overflow-y-auto">
-          <h2 className="text-2xl font-bold mb-4 text-center">Orders</h2>
-          <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+        <div className="mt-6 overflow-y-auto">
+          <h2 className="text-3xl font-bold text-center mb-4 text-gray-700">Orders</h2>
+          <div className="overflow-x-auto bg-white shadow-lg rounded-lg p-4">
             <table className="min-w-full divide-y divide-gray-200 text-sm lg:text-base">
-              <thead className="bg-gray-50 text-red-600">
+              <thead className="bg-gray-100 text-blue-600">
                 <tr>
-                  <th>ID</th>
-                  <th>Customer</th>
-                  <th>Address</th>
-                  <th>Date</th>
-                  <th>Total</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th className="p-2">ID</th>
+                  <th className="p-2">Customer</th>
+                  <th className="p-2">Address</th>
+                  <th className="p-2">Date</th>
+                  <th className="p-2">Total</th>
+                  <th className="p-2">Status</th>
+                  <th className="p-2">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {filteredOrders.map((order) => (
-                  <tr key={order._id} className="hover:bg-red-100 transition-all">
-                    <td>{order._id}</td>
-                    <td>{order.firstName} {order.lastName}</td>
-                    <td>{order.address}</td>
-                    <td>{new Date(order.orderDate).toLocaleDateString()}</td>
-                    <td>${order.total}</td>
-                    <td>
+                  <tr key={order._id} className="hover:bg-gray-100 transition-all">
+                    <td className="p-2">{order._id}</td>
+                    <td className="p-2">{order.firstName} {order.lastName}</td>
+                    <td className="p-2">{order.address}</td>
+                    <td className="p-2">{new Date(order.orderDate).toLocaleDateString()}</td>
+                    <td className="p-2 font-bold">${order.total}</td>
+                    <td className="p-2">
                       <select
                         value={order.status || ""}
                         onChange={(e) => handleStatusChange(order._id, e.target.value)}
-                        className="bg-gray-100 p-1 rounded"
+                        className="bg-gray-100 p-1 rounded border"
                       >
                         <option value="pending">Pending</option>
                         <option value="dispatch">Dispatch</option>
                         <option value="success">Completed</option>
                       </select>
                     </td>
-                    <td>
+                    <td className="p-2">
                       <button
                         onClick={() => handleDelete(order._id)}
                         className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700 transition"
