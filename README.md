@@ -1,3 +1,9 @@
+# Salam Sir, 
+# mera admin dashboard ki repo 2 dafaa khraab hogai he or ye 3rd dafaa banaya he es liye mene submition walaa form phir sy edit keyaa he aaj new links put ki hen....
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
